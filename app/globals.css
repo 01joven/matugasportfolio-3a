@@ -1,12 +1,22 @@
 @import "tailwindcss";
 
 :root {
-  --background: #030712;
-  --foreground: #f8fafc;
-  --surface: #0f172a;
+  --background: #ffffff;
+  --foreground: #0f172a;
+  --surface: #f8fafc;
+  --muted: #64748b;
+  --accent: #0ea5e9;
+  --accent-secondary: #6366f1;
+}
+
+/* Dark mode variables: applied when `.dark` class is present on <html> */
+.dark {
+  --background: #0b1220;
+  --foreground: #e6eef8;
+  --surface: #071021;
   --muted: #94a3b8;
-  --accent: #6366f1;
-  --accent-secondary: #22d3ee;
+  --accent: #60a5fa;
+  --accent-secondary: #8b5cf6;
 }
 
 @theme inline {
@@ -25,16 +35,63 @@ body {
   min-height: 100vh;
   margin: 0;
   background-color: var(--background);
-  background-image:
-    radial-gradient(circle at 20% 20%, rgba(99, 102, 241, 0.25), transparent 45%),
-    radial-gradient(circle at 80% 0%, rgba(14, 165, 233, 0.2), transparent 40%),
-    radial-gradient(circle at 50% 80%, rgba(236, 72, 153, 0.18), transparent 35%);
   color: var(--foreground);
-  font-family: var(--font-geist-sans), "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   line-height: 1.6;
 }
 
 ::selection {
   background: rgba(99, 102, 241, 0.35);
   color: var(--foreground);
+}
+
+/* Blob photo + glow styles for minimalist hero */
+.blob {
+  width: 18rem; /* matches w-72 */
+  height: 18rem;
+  border-radius: 50% 30% 50% 40%;
+  position: relative;
+}
+
+.blob-glow {
+  position: absolute;
+  inset: -18px;
+  border-radius: 50% 30% 50% 40%;
+  filter: blur(36px);
+  background: radial-gradient(circle at 70% 20%, rgba(99,102,241,0.18), transparent 18%), radial-gradient(circle at 30% 80%, rgba(236,72,153,0.14), transparent 20%);
+  opacity: 0.9;
+  z-index: 0;
+}
+
+.blob > img, .blob > picture, .blob > span {
+  position: relative !important;
+  z-index: 1;
+}
+
+/* Circular photo + glow for hero */
+.photo-circle {
+  width: 18rem; /* 72 */
+  height: 18rem;
+  border-radius: 9999px;
+  position: relative;
+  overflow: hidden;
+  border: 6px solid rgba(255,255,255,0.8);
+  box-shadow: 0 20px 50px rgba(2,6,23,0.06);
+  z-index: 1;
+}
+
+.photo-circle > img, .photo-circle > picture, .photo-circle > span {
+  position: relative !important;
+  z-index: 1;
+}
+
+.photo-glow {
+  position: absolute;
+  width: 22rem;
+  height: 22rem;
+  border-radius: 9999px;
+  filter: blur(36px);
+  background: radial-gradient(circle at 40% 30%, rgba(99,102,241,0.16), transparent 25%), radial-gradient(circle at 70% 70%, rgba(236,72,153,0.12), transparent 25%);
+  opacity: 0.95;
+  z-index: 0;
 }
