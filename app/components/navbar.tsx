@@ -9,6 +9,9 @@ const navItems = [
   { name: "About", path: "/about" },
   { name: "Skills", path: "/skills" },
   { name: "Projects", path: "/project" },
+  { name: "Team", path: "/team" },
+  { name: "Pricing", path: "/pricing" },
+  { name: "FAQ", path: "/faq" },
   { name: "Scheduling", path: "/round-robin" },
   { name: "Contact", path: "/contacts" },
 ];
@@ -16,8 +19,11 @@ const navItems = [
 export default function Navbar() {
   const pathname = usePathname();
   const [theme, setTheme] = useState<'light' | 'dark'>(() => {
-    if (typeof window === 'undefined') return 'light'
-    return (localStorage.getItem('theme') as 'light' | 'dark') || (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
+    // force dark by default; falls back to stored preference or system setting
+    if (typeof window === 'undefined') return 'dark'
+    const stored = localStorage.getItem('theme') as 'light' | 'dark' | null
+    if (stored) return stored
+    return (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'dark'
   })
 
   useEffect(() => {

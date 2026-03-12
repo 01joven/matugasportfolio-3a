@@ -4,6 +4,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Plus, Trash2, Play, RotateCcw } from "lucide-react";
+import PageHeader from '@/app/components/PageHeader';
 
 interface Process {
   id: number;
@@ -116,9 +117,14 @@ export default function FCFS() {
   };
 
   return (
-    <section className="py-20 px-6 bg-white">
-      <div className="max-w-7xl mx-auto">
-        <motion.h1 initial={{ opacity: 0, y: -10 }} whileInView={{ opacity: 1, y: 0 }} className="text-3xl md:text-4xl font-bold text-center mb-8 text-slate-900">
+    <main className="bg-white">
+      <section className="max-w-7xl mx-auto px-6 py-20">
+        <PageHeader
+          title="First Come First Served (FCFS)"
+          subtitle="Scheduling Simulator"
+          description="Add processes and visualize how the FCFS scheduling algorithm behaves."
+        />
+        <motion.h1 initial={{ opacity: 0, y: -10 }} whileInView={{ opacity: 1, y: 0 }} className="sr-only">
           First Come First Served (FCFS)
         </motion.h1>
 
@@ -244,7 +250,6 @@ export default function FCFS() {
             </div>
           </motion.div>
         )}
-      </div>
     </section>
   )
 }

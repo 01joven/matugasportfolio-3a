@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import PageHeader from '@/app/components/PageHeader';
 import matugasPic from '../images/matugas.jpg'
 
 const projects = [
@@ -18,11 +19,13 @@ const projects = [
 
 export default function Projects() {
   return (
-    <section className="py-24 px-6 bg-white">
-      <div className="max-w-7xl mx-auto">
-        <motion.h1 initial={{ opacity: 0, y: -20 }} whileInView={{ opacity: 1, y: 0 }} className="text-3xl md:text-4xl font-bold text-center mb-12 text-slate-900">
-          My Works
-        </motion.h1>
+    <main className="bg-white">
+      <section className="max-w-7xl mx-auto px-6 py-24">
+        <PageHeader
+          title="Projects"
+          subtitle="Selected Work"
+          description="A few examples of projects I've built. Click through to see more details."
+        />
 
         <div className="mt-8 flex flex-wrap justify-center gap-8">
           {projects.map((project, i) => (
@@ -55,5 +58,6 @@ export default function Projects() {
         </div>
       </div>
     </section>
+    </main>
   )
 }

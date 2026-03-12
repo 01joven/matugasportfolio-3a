@@ -22,7 +22,12 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.className} bg-white text-slate-900 min-h-screen antialiased`}>
         <Navbar />
-        <main className="pt-20">{children}</main>
+        <main className="pt-20">
+          {/* central container shared by all pages for consistent layout */}
+          <div className="max-w-7xl mx-auto px-6">
+            {children}
+          </div>
+        </main>
         <Footer />
       </body>
     </html>

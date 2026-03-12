@@ -1,19 +1,18 @@
 "use client"
 
 import React from 'react'
+import PageHeader from '@/app/components/PageHeader'
 
 export default function Contact() {
   return (
     <main className="min-h-screen bg-gradient-to-b from-slate-50 via-white to-slate-50 py-24">
       <section className="max-w-5xl mx-auto px-6">
         <div className="bg-white rounded-3xl shadow-2xl p-10 md:p-16">
-          <header className="text-center mb-8">
-            <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-pink-500">
-              Joven Matugas
-            </h1>
-            <p className="mt-4 text-2xl md:text-3xl text-gray-600">Full‑stack Developer & UI/UX Designer</p>
-            <p className="mt-2 text-base text-gray-400">Available for hire · Open to remote opportunities</p>
-          </header>
+          <PageHeader
+            title="Contact"
+            subtitle="Get in Touch"
+            description="Feel free to reach out via email, phone, or socials. I'm always open to discussing new projects."
+          />
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-start">
             <div className="space-y-6">
